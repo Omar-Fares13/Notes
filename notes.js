@@ -1,11 +1,13 @@
 const fs = require('fs');
 
 var addNotes = (title , body) => {
-fs.appendFile('hi.txt' , title + ' : ' + body , err => {
-    if(err){
-        console.log("error")
-    }
-});
+    var notes = [];
+    var note = {
+        title,
+        body
+    };
+    notes.push(note);
+    fs.writeFileSync('notes_data.json', JSON.stringify(notes));
 };
 
 var getAll = () => {
