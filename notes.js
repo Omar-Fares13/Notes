@@ -1,13 +1,21 @@
 const fs = require('fs');
 
+var notes = [];
+
+notes = JSON.parse(fs.readFileSync('notes_data.json'));
+
+
 var addNotes = (title , body) => {
-    var notes = [];
     var note = {
         title,
         body
     };
-    notes.push(note);
-    fs.writeFileSync('notes_data.json', JSON.stringify(notes));
+    var dupNotes = notes.filter((note) => note.title === title);
+
+    if(dupNotes.length === 0){
+        notes.push(note);
+        fs.writeFileSync('notes_data.json', JSON.stringify(notes));        
+    }
 };
 
 var getAll = () => {
