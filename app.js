@@ -22,7 +22,12 @@ console.log('Yargs', argv);
 
 if(command === 'add'){
     console.log('adding new note');
-    notes.addNotes(argv.title, argv.body);
+    var note = notes.addNotes(argv.title, argv.body);
+    if(note){
+        console.log('note created.')
+    }else{
+        console.log('note title already in use.')
+    }
 }else if(command === 'list'){
     console.log('listing all notes');
     notes.getAll();
