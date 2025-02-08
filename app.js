@@ -33,7 +33,13 @@ if(command === 'add'){
     notes.getAll();
 }else if (command === 'read'){
     console.log('reading note');
-    notes.getNote(argv.title);
+    var note = notes.getNote(argv.title);
+    if(note){
+        console.log('title: ', note.title);
+        console.log('body: ',note.body);
+    }else{
+        console.log('Note not found.');
+    }
 }else if (command === 'remove'){
     console.log('removing note');
     notes.removeNote(argv.title);

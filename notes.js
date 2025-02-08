@@ -37,16 +37,19 @@ var getAll = () => {
 
 var getNote = (title) => {
     console.log('Getting the note', title);
+    var notes = fetchNotes();
+    var note = notes.find((note)=> note.title === title);
+    return note;
 };
 
 var removeNote = (title)=> {
     var notes = fetchNotes();
-    var len = notes.length;
-    notes = notes.filter((note) => note.title !== title)
-    if(notes.length === len){
+    var index = notes.findIndex((note) => note.title === title)
+    if(index === -1){
       console.log('Note doesn\'t exist');
       return;
     }
+    notes.splice(index,1);
     saveNotes(notes);
     console.log('Removed the note', title);
 };
