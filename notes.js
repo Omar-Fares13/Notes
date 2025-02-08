@@ -1,9 +1,6 @@
 const fs = require('fs');
 
 
-
-
-
 var fetchNotes = () => {
     try{
         var notes = [];
@@ -43,6 +40,14 @@ var getNote = (title) => {
 };
 
 var removeNote = (title)=> {
+    var notes = fetchNotes();
+    var len = notes.length;
+    notes = notes.filter((note) => note.title !== title)
+    if(notes.length === len){
+      console.log('Note doesn\'t exist');
+      return;
+    }
+    saveNotes(notes);
     console.log('Removed the note', title);
 };
 
