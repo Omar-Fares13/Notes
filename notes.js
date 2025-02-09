@@ -1,6 +1,11 @@
 const fs = require('fs');
 
 
+var logNote = (note) => {
+    console.log('title: ', note.title);
+    console.log('body: ',note.body);
+};
+
 var fetchNotes = () => {
     try{
         var notes = [];
@@ -58,5 +63,6 @@ module.exports = {
     addNotes : addNotes,
     getAll : getAll,
     getNote : getNote,
-    removeNote : removeNote
+    removeNote : removeNote,
+    logNote : logNote
 };

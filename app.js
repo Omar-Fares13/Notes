@@ -25,6 +25,7 @@ if(command === 'add'){
     var note = notes.addNotes(argv.title, argv.body);
     if(note){
         console.log('note created.')
+        notes.logNote(note);
     }else{
         console.log('note title already in use.')
     }
@@ -35,8 +36,7 @@ if(command === 'add'){
     console.log('reading note');
     var note = notes.getNote(argv.title);
     if(note){
-        console.log('title: ', note.title);
-        console.log('body: ',note.body);
+        notes.logNote(note);
     }else{
         console.log('Note not found.');
     }
