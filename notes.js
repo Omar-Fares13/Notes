@@ -2,6 +2,7 @@ const fs = require('fs');
 
 
 var logNote = (note) => {
+    debugger;
     console.log('title: ', note.title);
     console.log('body: ',note.body);
 };
@@ -38,6 +39,7 @@ var addNotes = (title , body) => {
 
 var getAll = () => {
     console.log('Getting all notes');
+    return fetchNotes();
 };
 
 var getNote = (title) => {
